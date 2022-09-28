@@ -36,6 +36,7 @@ class requestParsing:
         for i in range(0, 10):
             # get tier data from db
             userData = dbCon.getUserTier(content[i])
+            print(str(userData))
             if userData[1]=="I":
                 tier_number = 6
             elif userData[1]=="B":
