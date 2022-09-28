@@ -74,6 +74,8 @@ class assembleTeam:
                         team[position*2+teams]=point
                         used[point]=1
 
+        print("최초 배치 끝 : "+str(team)+"\n")
+
         rest=[]
         for i in range(0, 10):
             if used[i]==0:
