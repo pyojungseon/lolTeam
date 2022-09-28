@@ -40,7 +40,7 @@ class DBConnection:
 
     def getUserTier(self, id):
         cur = self.conn.cursor()
-        sql = 'select * from UserTBL where id =' + id
+        sql = 'select * from UserTBL where id =' + id +"'"
         cur.execute(sql)
         row = cur.fetchone()
         return row
