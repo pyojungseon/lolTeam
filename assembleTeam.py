@@ -81,6 +81,7 @@ class assembleTeam:
             if used[i]==0:
                 rest.append(i)
 
+        print("남은 사람 : "+str(rest)+"\n")
         # 남는 빈자리는 그냥 채우기
         for p in range(0, 10):
             if len(str(team[p]))==0:
