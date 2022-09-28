@@ -10,9 +10,9 @@ class DBConnection:
     conn = None
     env = None
 
-    def __init__(self):
-        print("DB Construcor : P")
-        self.env = "P"
+    def __init__(self, _env):
+        print("DB Construcor : %s" % _env)
+        self.env = _env
 
     def __del__(self):
         print("DB Destructor")

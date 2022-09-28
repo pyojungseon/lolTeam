@@ -10,6 +10,6 @@ from MariaDB.DBCon import DBConnection
 
 assemble = assembleTeam()
 parser = requestParsing()
-dbCon = DBConnection('P')
+dbCon = DBConnection("P")
 dbCon.dbConnection()
 assemble.splitteam(parser.parsing("a"), dbCon)
