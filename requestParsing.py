@@ -36,14 +36,7 @@ class requestParsing:
         for i in range(0, 10):
             # get tier data from db
             userData = dbCon.getUserTier(content[i])
-            tiers=tierDTO()
-            tiers.id = content[i]
-            tiers.tier=userData.tier
-            tiers.top=userData.top
-            tiers.jug=userData.jug
-            tiers.mid=userData.mid
-            tiers.adc=userData.adc
-            tiers.sup=userData.sup
+            tiers=tierDTO(content[i], userData.tier, userData.top, userData.jug, userData.mid, userData.adc, userData.sup)
             user.append(tiers)
 
         return user
