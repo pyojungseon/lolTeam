@@ -41,7 +41,7 @@ class assembleTeam:
         #티어가 낮고 포지션이 적은 사람 먼저 채우기
         for p in range(0,5):
             for teams in range(0,2):
-                position = tier[sorted_tier[p]]
+                position = sorted_tier[p]
                 point=-1
                 score = 100
                 for i in range(0,10):
@@ -70,10 +70,10 @@ class assembleTeam:
                             point = i
                             score = sc.getScore(user[i].tier, con.SUP)
 
-                    if point!=-1:
-                        print("최초 배치 성공 : " + str(position*2+teams) + " 위치 "+str(point)+"\n")
-                        team[position*2+teams]=point
-                        used[point]=1
+                if point!=-1:
+                    print("최초 배치 성공 : " + str(position*2+teams) + " 위치 "+str(point)+"\n")
+                    team[position*2+teams]=point
+                    used[point]=1
 
         print("최초 배치 끝 : "+str(team)+"\n")
 
