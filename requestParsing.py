@@ -32,16 +32,18 @@ class requestParsing:
         content.append("수성못")
 
 
-        user=tierDTO()[10]
+        user=[]
         for i in range(0, 10):
             # get tier data from db
             userData = dbCon.getUserTier(content[i])
-            user[i].id = content[i];
-            user[i].tier=userData.tier
-            user[i].top=userData.top
-            user[i].jug=userData.jug
-            user[i].mid=userData.mid
-            user[i].adc=userData.adc
-            user[i].sup=userData.sup
+            tiers=tierDTO()
+            tiers.id = content[i]
+            tiers.tier=userData.tier
+            tiers.top=userData.top
+            tiers.jug=userData.jug
+            tiers.mid=userData.mid
+            tiers.adc=userData.adc
+            tiers.sup=userData.sup
+            user.append(tiers)
 
         return user
