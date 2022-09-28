@@ -37,7 +37,7 @@ class assembleTeam:
             sorted_tier.append(sorted_point)
             sorted_used[sorted_point] = 1;
 
-
+        print("정렬된 포지션순서 : "+str(sorted_tier)+"\n")
         #티어가 낮고 포지션이 적은 사람 먼저 채우기
         for p in range(0,5):
             for teams in range(0,2):
