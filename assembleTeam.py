@@ -71,6 +71,7 @@ class assembleTeam:
                             score = sc.getScore(user[i].tier, con.SUP)
 
                     if point!=-1:
+                        print("최초 배치 성공 : " + str(position*2+teams) + " 위치 "+str(point)+"\n")
                         team[position*2+teams]=point
                         used[point]=1
 
