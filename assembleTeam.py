@@ -91,8 +91,44 @@ class assembleTeam:
 
         # 점수 맞추기
         point=[]
+        sum=0
         for i in range(0, 10):
-            point.append(sc.getScore(user[team[i]].tier, int(i/2)))
+            getPoint=sc.getScore(user[team[i]].tier, int(i/2))
+            sum=sum+getPoint
+            point.append(getPoint)
 
         print(str(point))
 
+        lolsum=[0,0,0,0,0]
+        teamA=[0,0,0,0,0]
+        gap=100
+        for i in range(0, 2):
+            lolsum[0]=point[i]
+            for j in range(0, 2):
+                lolsum[1]=point[j+2]
+                for k in range(0, 2):
+                    lolsum[2] = point[k + 4]
+                    for l in range(0, 2):
+                        lolsum[3] = point[l + 6]
+                        for m in range(0, 2):
+                            lolsum[4] = point[m + 8]
+                            teamsum=lolsum[0]+lolsum[1]+lolsum[2]+lolsum[3]+lolsum[4]
+                            if abs((int)(sum/2)-teamsum)<gap:
+                                teamA[0]=i
+                                teamA[1]=j+2
+                                teamA[2]=k+4
+                                teamA[3]=l+6
+                                teamA[4]=m+8
+                                gap = abs((int)(sum/2)-teamsum)
+
+        teamAsum=0
+        teamBsum=0
+        for i in range(0, 5):
+            if teamA[i]%2==0:
+                teamAsum=teamAsum+point[i*2]
+                teamBsum=teamBsum+point[i*2+1]
+            else:
+                teamAsum = teamAsum + point[i * 2 + 1]
+                teamBsum = teamBsum + point[i * 2]
+
+        print(str(teamA) + " A score : " + str(teamAsum)+ " B score : " + str(teamBsum))

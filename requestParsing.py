@@ -11,18 +11,32 @@ class requestParsing:
     def parsing(self, params, dbCon):
         print(params)
 
-        reqDto = requestDTO()
-        userId = params['userRequest']['user']['id']
-        userId = userId.replace("\n", "")
-        content = params['userRequest']['utterance']
-        content = content.replace("\n", "")
-        header = content.split(" ")[0]
+        # reqDto = requestDTO()
+        # userId = params['userRequest']['user']['id']
+        # userId = userId.replace("\n", "")
+        # content = params['userRequest']['utterance']
+        # content = content.replace("\n", "")
+        # header = content.split(" ")[0]
+
+        #test data
+        content=[]
+        content.append("한은총재")
+        content.append("나밟꿈")
+        content.append("4등 못하면")
+        content.append("솜포도")
+        content.append("PAKA편집자")
+        content.append("벤트탓옹")
+        content.append("평타피하는중")
+        content.append("진짜 섭섭한탑")
+        content.append("cast")
+        content.append("수성못")
+
 
         user=tierDTO()[10]
         for i in range(0, 10):
-            user[i].id=content[i];
             # get tier data from db
             userData = dbCon.getUserTier(content[i])
+            user[i].id = content[i];
             user[i].tier=userData.tier
             user[i].top=userData.top
             user[i].jug=userData.jug

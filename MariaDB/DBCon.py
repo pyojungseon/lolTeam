@@ -38,6 +38,13 @@ class DBConnection:
         print(props)
         self.conn = pymysql.connect(host=_host, user=_user, password=_password, db=_db, charset=_charset)
 
+    def getUserTier(self, id):
+        cur = self.conn.cursor()
+        sql = 'select * from UserTBL where id =' + id
+        cur.execute(sql)
+        row = cur.fetchone()
+        return row
+
     def getMateData(self, telegramID):
         cur = self.conn.cursor()
         sql = 'select * from MateTBL where telegramID ='+str(telegramID)
