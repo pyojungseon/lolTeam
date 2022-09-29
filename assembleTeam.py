@@ -136,3 +136,6 @@ class assembleTeam:
                 teamBsum = teamBsum + point[i * 2]
 
         print(str(teamA) + " A score : " + str(teamAsum)+ " B score : " + str(teamBsum))
+        teamA.append(teamAsum)
+        teamA.append(teamBsum)
+        return teamA

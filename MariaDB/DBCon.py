@@ -59,9 +59,9 @@ class DBConnection:
 
     def insertLogData(self, logData):
         cur = self.conn.cursor()
-        print("%s %s %s" %(logData.id, logData.content, logData.tag))
+        print("%s %s" %(logData.tag, logData.content))
         try:
-            sql = "insert into LogTBL values('"+logData.id+"','"+logData.content+"','"+logData.tag+"',current_timestamp)"
+            sql = "insert into LogTBL values('"+logData.tag+"','"+logData.content+"',current_timestamp)"
             print(sql)
             cur.execute(sql)
         except Exception as ex:
