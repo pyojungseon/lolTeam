@@ -62,4 +62,4 @@ def restaurant():
 if __name__ == '__main__':
     dbCon = DBConnection('P')
     dbCon.dbConnection()
-    app.run(host='0.0.0.0', port=10008, debug=True)
+    app.run(host='0.0.0.0', port=10300, debug=True)
