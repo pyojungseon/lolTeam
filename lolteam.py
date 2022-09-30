@@ -20,13 +20,13 @@ def home():
     return "Hello, Flask"
 
 @app.route('/test', methods=['POST'])
-@cross_origin()
 def posttest():
     data=str(request.get_data())
     print(data)
-    resp=Response(data)
+    resp=Response("test return")
     #resp.headers['Access-Control-Allow-Credentials'] = 'true'
-    resp.headers["Access-Control-Allow-Origin"] = "*"
+    resp.headers['Access-Control-Allow-Origin'] = '*'
+    print(str(resp))
     return resp
 
 @app.route('/lolteam', methods=['POST'])
