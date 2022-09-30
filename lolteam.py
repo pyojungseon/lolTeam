@@ -13,14 +13,14 @@ from MariaDB.DBCon import DBConnection
 from assembleTeam import assembleTeam
 
 app = Flask(__name__)
-CORS(app, resources={r"/*":{"origins":"*"}})
+#CORS(app, resources={r"/*":{"origins":"*"}})
 
 @app.route('/')
 def home():
     return "Hello, Flask"
 
 @app.route('/test', methods=['POST'])
-@cross_origin()
+#@cross_origin()
 def posttest():
     data=str(request.get_data())
     resp=Response(data)
@@ -29,7 +29,7 @@ def posttest():
 
 
 @app.route('/lolteam', methods=['POST'])
-@cross_origin()
+#@cross_origin()
 def restaurant():
     params = request.get_json()
     parser = requestParsing()
