@@ -1,9 +1,9 @@
-from flask import Flask, json, request, jsonify
+from flask import Flask, json, request, jsonify, Response
 from requestParsing import requestParsing
 import sys
 import os
 import ssl
-from flask_cors import CORS
+from flask_cors import CORS, cross_origin
 
 sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))
 from DTO.logDTO import logDTO
@@ -13,13 +13,23 @@ from MariaDB.DBCon import DBConnection
 from assembleTeam import assembleTeam
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, resources={r"/*":{"origins":"*"}})
 
 @app.route('/')
 def home():
     return "Hello, Flask"
 
+@app.route('/test', methods=['POST'])
+@cross_origin()
+def posttest():
+    data=str(request.get_data())
+    resp=Response(data)
+    resp.headers['Access-Control-Allow-Credentials'] = 'true'
+    return resp
+
+
 @app.route('/lolteam', methods=['POST'])
+@cross_origin()
 def restaurant():
     params = request.get_json()
     parser = requestParsing()
