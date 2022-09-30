@@ -21,8 +21,8 @@ def home():
 
 @app.route('/test', methods=['POST'])
 def posttest():
-    data=str(request.get_data())
-    print(data)
+    print(str(request.headers))
+    print(str(request.get_data()))
     resp=Response("test return")
     #resp.headers['Access-Control-Allow-Credentials'] = 'true'
     resp.headers['Content-Type'] = 'text/plain;charset=UTF-8'
