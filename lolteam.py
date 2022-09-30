@@ -23,11 +23,11 @@ def home():
 #@cross_origin()
 def posttest():
     data=str(request.get_data())
+    print(data)
     resp=Response(data)
     #resp.headers['Access-Control-Allow-Credentials'] = 'true'
-    resp.headers['Access-Control-Allow-Origin'] = "*"
+    resp.headers["Access-Control-Allow-Origin"] = "*"
     return resp
-
 
 @app.route('/lolteam', methods=['POST'])
 #@cross_origin()
