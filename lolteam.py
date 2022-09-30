@@ -2,6 +2,7 @@ from flask import Flask, json, request, jsonify
 from requestParsing import requestParsing
 import sys
 import os
+import ssl
 from flask_cors import CORS
 
 sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))
@@ -63,4 +64,6 @@ def restaurant():
 if __name__ == '__main__':
     dbCon = DBConnection('P')
     dbCon.dbConnection()
-    app.run(host='0.0.0.0', port=10500, debug=True)
+    ssl_context = ssl.SSLContext(ssl.PROTOCOL_TLS)
+    ssl_context.load_cert_chain(certfile='cert.pem', keyfile='key.pem', password='suehig')
+    app.run(host="0.0.0.0", port=10500, ssl_context=ssl_context, debug=True)
