@@ -28,7 +28,7 @@ def posttest():
     resp.headers['Content-Type'] = 'text/plain;charset=UTF-8'
     resp.headers['Access-Control-Allow-Origin'] = '*'
     print(str(resp.headers))
-    print(str(resp))
+    print(str(resp.data))
     return resp
 
 @app.route('/lolteam', methods=['POST'])
