@@ -26,6 +26,7 @@ def posttest():
     resp=Response("test return")
     #resp.headers['Access-Control-Allow-Credentials'] = 'true'
     resp.headers['Access-Control-Allow-Origin'] = '*'
+    print(str(resp.headers))
     print(str(resp))
     return resp
 
