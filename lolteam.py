@@ -24,8 +24,8 @@ def home():
 def posttest():
     data=str(request.get_data())
     resp=Response(data)
-    resp.headers['Access-Control-Allow-Credentials'] = 'true'
-    resp.headers['Access-Control-Allow-Origin'] = '*'
+    #resp.headers['Access-Control-Allow-Credentials'] = 'true'
+    resp.headers['Access-Control-Allow-Origin'] = "*"
     return resp
 
 
