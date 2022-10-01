@@ -11,11 +11,12 @@ class requestParsing:
 
     def parsing(self, params, dbCon):
         print(str(params))
-        log = logDTO("team", str(params))
-        dbCon.insertLogData(log)
-        content = []
-        for key in params.keys():
-            content.append(params[key])
+        #log = logDTO("team", str(params))
+        #dbCon.insertLogData(log)
+        content = params['nick']
+        print("parsing data : ")
+        for i in range(0, 10):
+            print(content[i])
 
         user=[]
         for i in range(0, 10):

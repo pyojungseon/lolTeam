@@ -35,7 +35,6 @@ def posttest():
 def lolteam():
     params = request.get_json()
     parser = requestParsing()
-    parse.
     user = parser.parsing(params, dbCon)
     assemble = assembleTeam()
     teamA = assemble.splitteam(user)
