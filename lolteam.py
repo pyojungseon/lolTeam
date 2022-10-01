@@ -32,7 +32,7 @@ def posttest():
     return resp
 
 @app.route('/lolteam', methods=['POST'])
-def restaurant():
+def lolteam():
     params = request.get_json()
     parser = requestParsing()
     user = parser.parsing(params, dbCon)
@@ -70,6 +70,8 @@ def restaurant():
     resp = Response(send_data)
     resp.headers['Content-Type'] = 'text/plain;charset=UTF-8'
     resp.headers['Access-Control-Allow-Origin'] = '*'
+    print(str(resp.headers))
+    print(str(resp.data))
 
     return resp
 
