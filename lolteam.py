@@ -1,5 +1,6 @@
 from flask import Flask, json, request, jsonify, Response
 from requestParsing import requestParsing
+from urllib import parse
 import sys
 import os
 import ssl
@@ -35,7 +36,11 @@ def posttest():
 def lolteam():
     params = request.get_json()
     parser = requestParsing()
-    user = parser.parsing(params, dbCon)
+    
+    #utf8 처리
+    sprams = parse.unquote(params, 'utf8')
+    
+    user = parser.parsing(sprams, dbCon)
     assemble = assembleTeam()
     teamA = assemble.splitteam(user)
     teamAscore=teamA[5]
