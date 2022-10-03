@@ -37,6 +37,7 @@ class assembleTeam:
             sorted_tier.append(sorted_point)
             sorted_used[sorted_point] = 1;
 
+        checkScore=["N", "N", "N", "N", "N"]
         print("정렬된 포지션순서 : "+str(sorted_tier)+"\n")
         #티어가 낮고 포지션이 적은 사람 먼저 채우기
         for p in range(0,5):
@@ -48,27 +49,42 @@ class assembleTeam:
                     if position == con.TOP:
                         if user[i].top=='Y' and sc.getScore(user[i].tier, con.TOP)<score and used[i]==0:
                             point = i
-                            score = sc.getScore(user[i].tier, con.TOP)
+                            if(checkScore[position]=="Y"):
+                                score = sc.getScore(user[i].tier, con.TOP)
+                            else:
+                                checkScore[position] == "Y"
 
                     elif position == con.JUG:
                         if user[i].jug=='Y' and sc.getScore(user[i].tier, con.JUG)<score and used[i]==0:
                             point = i
-                            score = sc.getScore(user[i].tier, con.JUG)
+                            if (checkScore[position] == "Y"):
+                                score = sc.getScore(user[i].tier, con.JUG)
+                            else:
+                                checkScore[position] == "Y"
 
                     elif position == con.MID:
                         if user[i].mid=='Y' and sc.getScore(user[i].tier, con.MID)<score and used[i]==0:
                             point = i
-                            score = sc.getScore(user[i].tier, con.MID)
+                            if (checkScore[position] == "Y"):
+                                score = sc.getScore(user[i].tier, con.MID)
+                            else:
+                                checkScore[position] == "Y"
 
                     elif position == con.ADC:
                         if user[i].adc=='Y' and sc.getScore(user[i].tier, con.ADC)<score and used[i]==0:
                             point = i
-                            score = sc.getScore(user[i].tier, con.ADC)
+                            if (checkScore[position] == "Y"):
+                                score = sc.getScore(user[i].tier, con.ADC)
+                            else:
+                                checkScore[position] == "Y"
 
                     elif position == con.SUP:
                         if user[i].sup=='Y' and sc.getScore(user[i].tier, con.SUP)<score and used[i]==0:
                             point = i
-                            score = sc.getScore(user[i].tier, con.SUP)
+                            if (checkScore[position] == "Y"):
+                                score = sc.getScore(user[i].tier, con.SUP)
+                            else:
+                                checkScore[position] == "Y"
 
                 if point!=-1:
                     print("최초 배치 성공 : " + str(position*2+teams) + " 위치 "+str(point)+"\n")
@@ -88,6 +104,8 @@ class assembleTeam:
             if len(str(team[p]))==0:
                 wrong[p]=1
                 team[p]=rest.pop()
+
+
 
         for i in range (0, 10):
             print(user[team[i]].id+" "+str(wrong[i]))
