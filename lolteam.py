@@ -68,9 +68,11 @@ def lolteam():
             }
         ]
     }
-    resp = Response(jsonify(send_data))
-    resp.headers['Content-Type'] = 'application/json'
-    resp.headers['Access-Control-Allow-Origin'] = '*'
+    resp = jsonify(send_data)
+    resp.headers.set('Access-Control-Allow-Origin', '*')
+    # resp = Response(jsonify(send_data))
+    # resp.headers['Content-Type'] = 'application/json'
+    # resp.headers['Access-Control-Allow-Origin'] = '*'
     print(str(resp.headers))
     print(str(send_data))
 
