@@ -4,6 +4,7 @@ import sys
 import os
 import ssl
 from flask_cors import CORS, cross_origin
+from http import HTTPStatus
 
 sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))
 from DTO.logDTO import logDTO
@@ -67,13 +68,14 @@ def lolteam():
             }
         ]
     }
-    resp = Response(send_data)
-    resp.headers['Content-Type'] = 'text/plain;charset=UTF-8'
+    resp = Response(jsonify(send_data))
+    resp.headers['Content-Type'] = 'application/json'
     resp.headers['Access-Control-Allow-Origin'] = '*'
     print(str(resp.headers))
-    print(str(resp.data))
+    print(str(send_data))
 
     return resp
+
 
 
 if __name__ == '__main__':
